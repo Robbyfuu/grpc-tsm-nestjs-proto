@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package auth;
+
+service AuthService {
+    rpc Login(LoginRequest) returns (LoginResponse) {}
+    rpc Register(RegisterRequest) returns (RegisterResponse) {}
+    // rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse) {}
+    rpc ForgotPassword(ForgotPasswordRequest) returns (ForgotPasswordResponse) {}
+    rpc ResetPassword(ResetPasswordRequest) returns (ResetPasswordResponse) {}
+    rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse) {} 
+}
+
+message User{
+    string id = 1;
+    string nombre = 2;
+    string email = 3;
+    string estado = 4;
+    string password = 5;
+    string role = 6;
+    string createdAt = 7;
+    string updatedAt = 8;
+}
+message LoginRequest {
+    string email = 1;
+    string password = 2;
+}
+message LoginResponse {
+    bool ok = 1;
+    int32 status = 2;
+    User usuario = 3;
+    string token = 4;
+    string refreshToken = 5;
+}
+
+message RegisterRequest {
+    string name = 1;
+    string email = 2;
+    string password = 3;
+    string role = 4;
+}
+message RegisterResponse {
+    bool ok = 1;
+    int32 status = 2;
+    User usuario = 3;
+    string token = 4;
+    string refreshToken = 5;
+}
+
+message ForgotPasswordRequest {
+    string email = 1;
+}
+message ForgotPasswordResponse {
+    bool ok = 1;
+    int32 status = 2;
+    string msg = 3;
+    User usuario = 4;
+}
+
+message ResetPasswordRequest {
+    string token = 1;
+    string password = 2;
+}
+message ResetPasswordResponse {
+    bool ok = 1;
+    int32 status = 2;
+    string msg = 3;
+    User usuario = 4;
+}
+
+message RefreshTokenRequest {
+    string refreshToken = 1;
+}
+message RefreshTokenResponse {
+    bool ok = 1;
+    int32 status = 2;
+    User usuario = 3;
+    string token = 4;
+    string refreshToken = 5;
+}

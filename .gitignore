@@ -1,0 +1,27 @@
+#mac # Ignorar el archivo "file"
+file
+
+#mac # Ignorar el archivo "file" y todos los archivos con la extensión "ext"
+file.ext
+
+#mac
+.dstore
+.DS_Store
+
+*.log
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
