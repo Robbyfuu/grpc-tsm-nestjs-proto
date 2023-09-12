@@ -31,6 +31,7 @@ message LoginResponse {
     User usuario = 3;
     string token = 4;
     string refreshToken = 5;
+    repeated string error = 6;
 }
 
 message RegisterRequest {
@@ -45,6 +46,7 @@ message RegisterResponse {
     User usuario = 3;
     string token = 4;
     string refreshToken = 5;
+    repeated string error = 6;
 }
 
 message ForgotPasswordRequest {
