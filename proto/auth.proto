@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+import "google/protobuf/timestamp.proto";
 
 package auth;
 
@@ -19,8 +20,8 @@ message User {
     bool estado = 4;
     string password = 5;
     string role = 6;
-    string createdAt = 7;
-    string updatedAt = 8;
+    google.protobuf.Timestamp  createdAt = 7;
+    google.protobuf.Timestamp  updatedAt = 8;
 }
 message LoginRequest {
     string email = 1;
