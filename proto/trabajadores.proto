@@ -13,7 +13,7 @@ service TrabajadorService {
     rpc GetTrabajadoresByNombre(TrabajadorByNombreRequest) returns (TrabajadorByNombreResponse);
 }
 
-message Trabajador {;
+message Trabajador {
     int64 ficha = 1;
     string rut = 2;
     string nombre_completo = 3;
