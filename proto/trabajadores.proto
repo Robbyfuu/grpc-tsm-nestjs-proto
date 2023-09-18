@@ -4,7 +4,7 @@ package trabajador;
 service TrabajadorService {
     rpc GetTrabajadores(TrabajadorRequest) returns (TrabajadorResponse);
     rpc GetTabajadoresActivos(TrabajadorRequest) returns (TrabajadorResponse);
-    rpc GetTabajadorById(TrabajadorByIdRequest) returns (TrabajadorByIdResponse);
+    rpc GetTabajadorByFicha(TrabajadorByFichaRequest) returns (TrabajadorByFichaResponse);
     rpc CreateTrabajador(CreateTrabajadorRequest) returns (CreateTrabajadorResponse);
     rpc UpdateTrabajador(UpdateTrabajadorRequest) returns (UpdateTrabajadorResponse);
     rpc DeleteTrabajador(DeleteTrabajadorRequest) returns (DeleteTrabajadorResponse);
@@ -13,27 +13,26 @@ service TrabajadorService {
     rpc GetTrabajadoresByNombre(TrabajadorByNombreRequest) returns (TrabajadorByNombreResponse);
 }
 
-message Trabajador {
-    int32 id = 1;
-    int64 ficha = 2;
-    string rut = 3;
-    string nombre_completo = 4;
-    string fecha_nacimiento = 5;
-    string nacionalidad = 6;
-    bool estado = 7;
-    string sexo = 8;
-    string cargo = 9;
-    string fecha_ingreso = 10;
-    string gerencia = 11;
-    string tipo_contrato = 12;
-    string calificacion_trabajador = 13;
-    string tipo_estructura = 14;
-    string base = 15;
-    string centro_costo = 16;
-    string jefatura = 17;
-    int32 vacaciones_restantes = 18;
-    string createdAt = 19;
-    string updatedAt = 20;
+message Trabajador {;
+    int64 ficha = 1;
+    string rut = 2;
+    string nombre_completo = 3;
+    string fecha_nacimiento = 4;
+    string nacionalidad = 5;
+    bool estado = 6;
+    string sexo = 7;
+    string cargo = 8;
+    string fecha_ingreso = 9;
+    string gerencia = 10;
+    string tipo_contrato = 11;
+    string calificacion_trabajador = 12;
+    string tipo_estructura = 13;
+    string base = 14;
+    string centro_costo = 15;
+    string jefatura = 16;
+    int32 vacaciones_restantes = 17;
+    string createdAt = 18;
+    string updatedAt = 19;
 }
 message TrabajadorRequest {
 
@@ -44,10 +43,10 @@ message TrabajadorResponse {
     repeated Trabajador trabajadores = 3;
 }
 
-message TrabajadorByIdRequest {
-    int32 id = 1;
+message TrabajadorByFichaRequest {
+    int32 ficha = 1;
 }
-message TrabajadorByIdResponse {
+message TrabajadorByFichaResponse {
     bool ok = 1;
     int32 status = 2;
     optional Trabajador trabajador = 3;
@@ -59,17 +58,17 @@ message CreateTrabajadorRequest {
   string nombre_completo = 3;
   string fecha_nacimiento = 4;
   string nacionalidad = 5;
-  bool estado = 6;
+  optional bool estado = 6;
   string sexo = 7;
   string cargo = 8;
   string fecha_ingreso = 9;
   string gerencia = 10;
-  string tipo_contrato = 11;
-  string calificacion_trabajador = 12;
-  string tipo_estructura = 13;
-  string base = 14;
-  string centro_costo = 15;
-  string jefatura = 16;
+  optional string tipo_contrato = 11;
+  optional string calificacion_trabajador = 12;
+  optional string tipo_estructura = 13;
+  optional string base = 14;
+  optional string centro_costo = 15;
+  optional string jefatura = 16;
 }
 message CreateTrabajadorResponse {
     bool ok = 1;
@@ -80,23 +79,23 @@ message CreateTrabajadorResponse {
 };
 
 message UpdateTrabajadorRequest {
-    optional int32 id = 1;
-    optional int64 ficha = 2;
-    optional string rut = 3;
-    optional string nombre_completo = 4;
-    optional string fecha_nacimiento = 5;
-    optional string nacionalidad = 6;
-    optional bool estado = 7;
-    optional string sexo = 8;
-    optional string cargo = 9;
-    optional string fecha_ingreso = 10;
-    optional string gerencia = 11;
-    optional string tipo_contrato = 12;
-    optional string calificacion_trabajador = 13;
-    optional string tipo_estructura = 14;
-    optional string base = 15;
-    optional string centro_costo = 16;
-    optional string jefatura = 17;
+    optional int64 ficha = 1;
+    optional string rut = 2;
+    optional string nombre_completo = 3;
+    optional string fecha_nacimiento = 4;
+    optional string nacionalidad = 5;
+    optional bool estado = 6;
+    optional string sexo = 7;
+    optional string cargo = 8;
+    optional string fecha_ingreso = 9;
+    optional string gerencia = 10;
+    optional string tipo_contrato = 11;
+    optional string calificacion_trabajador = 12;
+    optional string tipo_estructura = 13;
+    optional string base = 14;
+    optional string centro_costo = 15;
+    optional string jefatura = 16;
+    optional float vacaciones_restantes = 17;
 }
 message UpdateTrabajadorResponse {
     bool ok = 1;
@@ -107,7 +106,7 @@ message UpdateTrabajadorResponse {
 };
 
 message DeleteTrabajadorRequest {
-    int32 id = 1;
+    int32 ficha = 1;
 }
 message DeleteTrabajadorResponse {
     bool ok = 1;
