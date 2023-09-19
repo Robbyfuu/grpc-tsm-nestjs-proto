@@ -132,6 +132,27 @@ message TrabajadorByNombreResponse {
     int32 status = 2;
     repeated TrabajadorNombre trabajadores = 3;
   }
+  message TrabajadorLicence {
+    int32 ficha = 1;
+    string rut = 2;
+    string nombreCompleto = 3;
+    string fechaNacimiento = 4;
+    string nacionalidad = 5;
+    bool estado = 6;
+    string sexo = 7;
+    string cargo = 8;
+    string fechaIngreso = 9;
+    string gerencia = 10;
+    string tipoContrato = 11;
+    string calificacionTrabajador = 12;
+    string tipoEstructura = 13;
+    string base = 14;
+    string centroCosto = 15;
+    string jefatura = 16;
+    float vacacionesRestantes = 17;
+    string createdAt = 18;
+    string updatedAt = 19;
+}
 
   message LicenciaMedica {
     int32 id = 1;
@@ -146,7 +167,7 @@ message TrabajadorByNombreResponse {
     bool estadoLicencia = 10;
     string createdAt = 11;
     string updatedAt = 12;
-    Trabajador trabajador = 13;
+    TrabajadorLicence trabajador = 13;
 }
 
   message LicenciasMedicasResponse {
