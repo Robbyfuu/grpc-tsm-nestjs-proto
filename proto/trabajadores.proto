@@ -14,25 +14,25 @@ service TrabajadorService {
 }
 
 message Trabajador {
-    int64 ficha = 1;
+    int32 ficha = 1;
     string rut = 2;
     string nombre_completo = 3;
     string fecha_nacimiento = 4;
     string nacionalidad = 5;
-    bool estado = 6;
-    string sexo = 7;
-    string cargo = 8;
+    string sexo = 6;
+    string cargo = 7;
+    bool estado = 8;
     string fecha_ingreso = 9;
     string gerencia = 10;
-    string tipo_contrato = 11;
-    string calificacion_trabajador = 12;
-    string tipo_estructura = 13;
-    string base = 14;
-    string centro_costo = 15;
-    string jefatura = 16;
-    int32 vacaciones_restantes = 17;
-    string createdAt = 18;
-    string updatedAt = 19;
+    string calificacion_trabajador = 11;
+    string tipo_contrato = 12;
+    string createdAt = 13;
+    string updatedAt = 14;
+    string tipo_estructura = 15;
+    string base = 16;
+    string centro_costo = 17;
+    string jefatura = 18;
+    float vacaciones_restantes = 19;
 }
 message TrabajadorRequest {
 
