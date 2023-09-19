@@ -1,4 +1,6 @@
 syntax= "proto3";
+
+
 package trabajador;
 
 service TrabajadorService {
@@ -11,28 +13,31 @@ service TrabajadorService {
     // rpc CreateTrabajadoresMasivo(CreateTrabajadoresMasivoRequest) returns (CreateTrabajadoresMasivoResponse);
     // rpc UpdateTrabajadoresMasivo(UpdateTrabajadoresMasivoRequest) returns (UpdateTrabajadoresMasivoResponse);
     rpc GetTrabajadoresByNombre(TrabajadorByNombreRequest) returns (TrabajadorByNombreResponse);
+
+    //licencias medicas
+    rpc GetLicenciasMedicas(TrabajadorRequest) returns (LicenciasMedicasResponse);
 }
 
 message Trabajador {
     int32 ficha = 1;
     string rut = 2;
-    string nombre_completo = 3;
-    string fecha_nacimiento = 4;
+    string nombreCompleto = 3;
+    string fechaNacimiento = 4;
     string nacionalidad = 5;
     string sexo = 6;
     string cargo = 7;
     bool estado = 8;
-    string fecha_ingreso = 9;
+    string fechaIngreso = 9;
     string gerencia = 10;
-    string calificacion_trabajador = 11;
-    string tipo_contrato = 12;
+    string calificacionTrabajador = 11;
+    string tipoContrato = 12;
     string createdAt = 13;
     string updatedAt = 14;
-    string tipo_estructura = 15;
+    string tipoEstructura = 15;
     string base = 16;
-    string centro_costo = 17;
+    string centroCosto = 17;
     string jefatura = 18;
-    float vacaciones_restantes = 19;
+    float vacacionesRestantes = 19;
 }
 message TrabajadorRequest {
 
@@ -126,4 +131,26 @@ message TrabajadorByNombreResponse {
     bool ok = 1;
     int32 status = 2;
     repeated TrabajadorNombre trabajadores = 3;
+  }
+
+  message LicenciaMedica {
+    int32 id = 1;
+    string fechaInicio = 2;
+    string fechaFin = 3;
+    int32 cantDias = 4;
+    int32 ficha = 5;
+    string fechaRecepcion = 6;
+    string doctor = 7;
+    string doctorEspecialidad = 8;
+    string doctorRut = 9;
+    bool estadoLicencia = 10;
+    string createdAt = 11;
+    string updatedAt = 12;
+    Trabajador trabajador = 13;
+}
+
+  message LicenciasMedicasResponse {
+    bool ok = 1;
+    int32 status = 2;
+    repeated LicenciaMedica licenciasMedicas = 3;
   }
