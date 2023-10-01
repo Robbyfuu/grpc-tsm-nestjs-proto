@@ -196,11 +196,11 @@ message TrabajadorByNombreResponse {
 message CreateFiniquitoRequest {
     int32 ficha = 1;
     string mes = 2;
-    bool convenios_sindicatos = 3;
-    optional string nombre_sindicato = 4;
-    string causal_despido = 5;
-    int32 monto_pagado = 6;
-    int32 monto_legalmente = 7;
+    string causal_despido = 3;
+    int32 monto_pagado = 4;
+    int32 monto_legalmente = 5;
+    bool convenios_sindicatos = 6;
+    optional string nombre_sindicato = 7;
 }
 message FiniquitoResponse {
     bool ok = 1;
