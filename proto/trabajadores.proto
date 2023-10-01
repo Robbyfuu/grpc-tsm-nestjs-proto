@@ -193,15 +193,15 @@ message TrabajadorByNombreResponse {
     google.protobuf.Timestamp updated_at = 9;
   }
 
-    message CreateFiniquitoRequest {
-        int32 ficha = 1;
-        google.protobuf.Timestamp mes = 2;
-        bool convenios_sindicatos = 3;
-        string causal_despido = 4;
-        int32 monto_pagado = 5;
-        int32 monto_legalmente = 6;
-        string nombre_sindicato = 7;
-    }
+message CreateFiniquitoRequest {
+    int32 ficha = 1;
+    string mes = 2;
+    bool convenios_sindicatos = 3;
+    string causal_despido = 4;
+    int32 monto_pagado = 5;
+    int32 monto_legalmente = 6;
+    string nombre_sindicato = 7;
+}
 message FiniquitoResponse {
     bool ok = 1;
     int32 status = 2;
