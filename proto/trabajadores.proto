@@ -1,4 +1,5 @@
 syntax= "proto3";
+import "google/protobuf/timestamp.proto";
 
 
 package trabajador;
@@ -16,6 +17,10 @@ service TrabajadorService {
 
     //licencias medicas
     rpc GetLicenciasMedicas(TrabajadorRequest) returns (LicenciasMedicasResponse);
+
+    //finiquitos
+    rpc CreateFiniquito(CreateFiniquitoRequest) returns (CreateFiniquitoResponse);
+    rpc CreateFiniquitosMassive(CreateFiniquitoMassiveRquest) returns (CreateFiniquitoMassiveResponse);
 }
 
 message Trabajador {
@@ -175,3 +180,49 @@ message TrabajadorByNombreResponse {
     int32 status = 2;
     repeated LicenciaMedica licenciasMedicas = 3;
   }
+
+  message Finiquito {
+    string id = 1;
+    int32 ficha = 2;
+    google.protobuf.Timestamp mes = 3;
+    bool convenio_sindicato = 4;
+    string nombre_sindicato = 5;
+    string causal_despido = 6;
+    int32 monto_pagado = 7;
+    google.protobuf.Timestamp created_at = 8;
+    google.protobuf.Timestamp updated_at = 9;
+  }
+
+    message CreateFiniquitoRequest {
+        int32 ficha = 1;
+        google.protobuf.Timestamp mes = 2;
+        bool convenios_sindicatos = 3;
+        string causal_despido = 4;
+        int32 monto_pagado = 5;
+        int32 monto_legalmente = 6;
+        string nombre_sindicato = 7;
+    }
+message FiniquitoResponse {
+    bool ok = 1;
+    int32 status = 2;
+    optional Finiquito finiquito = 3;
+    optional string error = 4;
+    optional string msg = 5;
+};
+message CreateFiniquitoResponse {
+    bool ok = 1;
+    int32 status = 2;
+    optional Finiquito finiquito = 3;
+    optional string error = 4;
+    optional string msg = 5;
+};
+message CreateFiniquitoMassiveRquest {
+    repeated CreateFiniquitoRequest finiquitos = 1;
+}
+message CreateFiniquitoMassiveResponse {
+    bool ok = 1;
+    int32 status = 2;
+    repeated Finiquito finiquitos = 3;
+    optional string error = 4;
+    optional string msg = 5;
+};
