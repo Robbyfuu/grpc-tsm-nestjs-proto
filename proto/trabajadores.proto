@@ -197,10 +197,10 @@ message CreateFiniquitoRequest {
     int32 ficha = 1;
     string mes = 2;
     bool convenios_sindicatos = 3;
-    string causal_despido = 4;
-    int32 monto_pagado = 5;
-    int32 monto_legalmente = 6;
-    string nombre_sindicato = 7;
+    string nombre_sindicato = 4;
+    string causal_despido = 5;
+    int32 monto_pagado = 6;
+    int32 monto_legalmente = 7;
 }
 message FiniquitoResponse {
     bool ok = 1;
